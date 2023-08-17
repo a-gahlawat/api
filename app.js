@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
@@ -33,7 +34,7 @@ app.post("/", function (req, res) {
     const jsonData = JSON.stringify(data);
     const options = {
         method: "POST",
-        auth: "ashish:ebdd35b00eb383d9f36625b3e3f1d732-us21"
+        auth: process.env.API_ID
     }
 
     const request = https.request(url, options, function (response) {
@@ -58,9 +59,6 @@ app.listen(process.env.PORT || 3000, function () {
     console.log("Sever started at port 3000");
 });
 
-
-// API key
-//  ebdd35b00eb383d9f36625b3e3f1d732-us21
 
 // List id
 // 167d5e8cfb
